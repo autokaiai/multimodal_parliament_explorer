@@ -5,39 +5,63 @@
   <img src="https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white">
   <img src="https://img.shields.io/badge/LaTeX-008080?style=for-the-badge&logo=latex&logoColor=white">
   <img src="https://img.shields.io/badge/MongoDB-47A248?style=for-the-badge&logo=mongodb&logoColor=white">
-
+  <img src="https://img.shields.io/badge/License-MIT-green?style=for-the-badge">
 </div>
 
 <br />
 
 <p align="center">
   <img src="assets/icon.png" alt="Logo" width="120" height="120" style="border-radius:15%;">
-  <h3 align="center">Multimodal Parliament Explorer</h3>
-  <p align="center">Abschlussprojekt des Programmierpraktikums.</p>
 </p>
-<div align="center" style="display: flex; flex-direction: column; gap: 0.5em;">
-  <a href="https://documentation.multimodalparliamentexplorer.landmann.ph/">
-    <img alt="JavaDoc öffnen" src="https://img.shields.io/badge/JavaDoc öffnen-F89820?style=for-the-badge&logo=openjdk&logoColor=white">
+<h3 align="center">Multimodal Parliament Explorer</h3>
+<p align="center">Final project of the programming lab — visualizing and analyzing German Bundestag plenary protocols.</p>
+
+<div align="center">
+  <a href="https://autokaiai.github.io/multimodal_parliament_explorer/">
+    <img alt="Open JavaDoc" src="https://img.shields.io/badge/Open JavaDoc-F89820?style=for-the-badge&logo=openjdk&logoColor=white">
   </a>
+  &nbsp;
   <a href="benutzerhandbuch.md">
-    <img alt="Zum Benutzerhandbuch" src="https://img.shields.io/badge/Zum Benutzerhandbuch-000000?style=for-the-badge&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iMjRweCIgdmlld0JveD0iMCAtOTYwIDk2MCA5NjAiIHdpZHRoPSIyNHB4IiBmaWxsPSIjZTNlM2UzIj48cGF0aCBkPSJNMjQwLTgwcS0zMyAwLTU2LjUtMjMuNVQxNjAtMTYwdi02NDBxMC0zMyAyMy41LTU2LjVUMjQwLTg4MGg0ODBxMzMgMCA1Ni41IDIzLjVUODAwLTgwMHY2NDBxMCAzMy0yMy41IDU2LjVUNzIwLTgwSDI0MFptMC04MGg0ODB2LTY0MGgtODB2MjgwbC0xMDAtNjAtMTAwIDYwdi0yODBIMjQwdjY0MFptMCAwdi02NDAgNjQwWm0yMDAtMzYwIDEwMC02MCAxMDAgNjAtMTAwLTYwLTEwMCA2MFoiLz48L3N2Zz4=&logoColor=white">
+    <img alt="User Manual" src="https://img.shields.io/badge/User Manual-000000?style=for-the-badge&logo=markdown&logoColor=white">
   </a>
 </div>
 
-## Dependencies
+---
+
+> [!NOTE]
+> **Group project.** This is the repository of our group project, which all four team members contributed to. It was first hosted at `github.com/Kuuhhl/multimodal_parliament_explorer`.
+
+## About the project
+
+The **Multimodal Parliament Explorer** makes speeches from the German Bundestag searchable and analyzable. Plenary protocols are imported, enriched with NLP techniques, and presented together with the corresponding video. Results can be visualized interactively and exported as XML or PDF.
+
+## Features
+
+* View parliamentary speeches alongside their video
+* Information about speakers and protocols
+* Visualization of NLP analyses through interactive charts (D3)
+* Full-text and advanced search
+* Export as XML / PDF (via LaTeX)
+
+## Tech stack
+
+Java 17 · Javalin · Apache FreeMarker · MongoDB · D3.js · LaTeX · Docker
+
+## Requirements
 
 * Git
 * Docker
 
-## Anleitung zur Benutzung (mit Docker)
+## Usage (with Docker)
 
-1. Repository klonen: `git clone https://github.com/kuuhhl/multimodal_parliament_explorer`
-2. Hinein-Navigieren: `cd multimodal_parliament_explorer`
-3. Docker-Image erstellen: `docker build -t multimodal_parliament_explorer .`
-4. Docker-Container starten: `docker run --rm -d -p 7001:7001 multimodal_parliament_explorer`
-5. Im Browser öffnen: [http://localhost:7001](http://localhost:7001)
+1. Clone the repository: `git clone https://github.com/autokaiai/multimodal_parliament_explorer`
+2. Enter the directory: `cd multimodal_parliament_explorer`
+3. Build the Docker image: `docker build -t multimodal_parliament_explorer .`
+4. Start the container: `docker run --rm -d -p 7001:7001 multimodal_parliament_explorer`
+5. Open in your browser: [http://localhost:7001](http://localhost:7001)
 
-> Für eine ausführlichere Anleitung geht es [hier](benutzerhandbuch.md) zum Benutzerhandbuch.
+> [!TIP]
+> For more detailed instructions, see the [user manual](benutzerhandbuch.md).
 
 ## Screenshots
 
@@ -46,9 +70,17 @@
   <img src="assets/screenshot-2.png" alt="Screenshot 2" width="300" style="margin-left: 20px;">
 </div>
 
-## Features
+## Team
 
-* Anzeigen von Parlamentsreden mitsamt Video
-* Informationen zu Rednern und Protokollen
-* Visualisierung von NLP-Analysen mithilfe von Diagrammen
-* Export als XML / PDF
+This project was developed collaboratively by the following four people:
+
+* Philipp Hein
+* Philipp Landmann
+* Philip Schneider
+* Kai Alois Wöllstein
+
+## License & citation
+
+Released under the [MIT License](LICENSE).
+
+Any use, reuse, or distribution must credit **all four team members** (Philipp Hein, Philipp Landmann, Philip Schneider, and Kai Alois Wöllstein). The full license and copyright notice from the [`LICENSE`](LICENSE) file must be retained.
