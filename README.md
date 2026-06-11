@@ -79,6 +79,12 @@ This project was developed collaboratively by the following four people:
 * Philip Schneider
 * Kai Alois Wöllstein
 
+## Acknowledgements
+
+This project was developed as the final project of the **Programmierpraktikum (PPR)** at the [Text Technology Lab](https://www.texttechnologylab.org/), Goethe University Frankfurt.
+
+We thank **[Giuseppe Abrami](https://github.com/abrami)** ([Text Technology Lab](https://www.texttechnologylab.org/team/giuseppe-abrami/)) for supervising the course. The project builds on Text Technology Lab infrastructure, including [UIMATypeSystem](https://github.com/texttechnologylab/UIMATypeSystem) and the [Docker Unified UIMA Interface (DUUI)](https://github.com/texttechnologylab/DockerUnifiedUIMAInterface).
+
 ## License & citation
 
 Released under the [MIT License](LICENSE).
