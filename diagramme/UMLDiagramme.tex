@@ -1,0 +1,1402 @@
+\documentclass[a0paper,landscape]{article} % landscape hinzugefügt
+\usepackage{tikz}
+\usepackage{tikz-uml}
+\usepackage[margin=0cm]{geometry}
+
+\begin{document}
+	\title{Klassen und Package Diagramm für Übung 5 PPR 24/25}
+	\author{Philipp Noah Hein, 6356965}
+	\date{\today}
+	\maketitle
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	% Package-/Klassendiagramm
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\newpage
+	\section*{Package-/Klassendiagramm}
+	\begin{center}
+		\resizebox{\textwidth}{!}{%
+			\begin{tikzpicture}[scale=0.8]
+				\begin{scope}[xshift=5cm]
+					\begin{umlpackage}[]{Multimodal Parliament Explorer}
+						
+						
+		
+
+			%database
+			
+			\begin{umlpackage}[x=0,y=0]{database}
+				\umlclass{MongoDBConfig}{}{}
+				\umlclass[x=0, y= -4]{MongoDBHandler}{}{}
+				\umlclass[x=7]{CreateSearchCollections}{}{}
+			\end{umlpackage}
+			
+			
+			
+			%export
+			
+			\begin{umlpackage}[x=20,y=0]{export}
+				\umlclass{ExportManager}{}{}
+				
+				\umlclass[x=0, y = -4]{LatexCompiler}{}{
+				}
+				
+				\umlclass[x=8]{MultiplePlenarprotocolsExporter}{}{
+				}
+				
+				\umlclass[x=4, y = -4]{TopicExporter}{}{
+				}
+				
+			\end{umlpackage}
+			
+			%importer
+			
+			\begin{umlpackage}[x=40,y=0]{importer}
+				\umlclass{ImporterPlenarprotocol}{}{
+				}
+				
+				\umlclass[x=6]{ImportHandler}{
+				}{
+				}
+				
+				\umlclass[x=0, y= -4]{ImportPictures}{
+				}{
+				}
+				
+				\umlclass[x=6, y= -4]{ImportSpeaker}{
+				}{
+				}
+				
+				\umlclass[x=12]{ImportVideos}{
+				}{
+				}
+				
+				\umlclass[x=12, y = -4]{MergeSpeakerInfo}{}{
+				}
+				
+			\end{umlpackage}
+			
+			
+			%linguisticFeatures
+			
+			\begin{umlpackage}[x=0,y=-20]{linguisticFeatures}
+				
+				\begin{umlpackage}[x=0,y=0]{Interfaces}
+					\umlclass{IAudioTokenFeature}{
+					}{
+					}
+					
+					
+					\umlclass[x=6]{IDependencyFeature}{
+					}{
+					}
+					
+					
+					\umlclass[x=12]{ILinguisticFeaturesAggregate}{
+					}{
+					}
+					
+					
+					\umlclass[x=0, y=-4]{IMetadataFeature}{
+					}{
+					}
+					
+					
+					\umlclass[x=4, y=-4]{IPosFeature}{
+					}{
+					}
+					
+					\umlclass[x=8,y=-4]{ISentenceFeature}{
+					}{
+					}
+					
+					\umlclass[x=0, y=-8]{ISentimentFeature}{
+					}{
+					}
+					
+					\umlclass[x=5, y=-8]{ISentenceFeature}{
+					}{
+					}
+					
+					\umlclass[x=10, y=-8]{ITokenFeature}{
+					}{
+					}
+					
+					\umlclass[x=15, y=-8]{ITopicFeature}{
+					}{
+					}
+					
+				\end{umlpackage}
+				
+				\begin{umlpackage}[x=20,y=0]{SubClasses}
+					\umlclass{AudioTokenFeature}{
+					}{
+					}
+					
+					\umlclass[x=5]{DependencyFeature}{
+					}{
+					}
+					
+					\umlclass[x=10]{MetadataFeature}{
+					}{
+					}
+					
+					\umlclass[x=0, y=-4]{PosFeature}{
+					}{
+					}
+					
+					\umlclass[x=5, y=-4]{SentenceFeature}{
+					}{
+					}
+					
+					
+					\umlclass[x=10,y=-4]{SentimentFeature}{
+					}{
+					}
+					
+					
+					\umlclass[x=5,y=-8]{TokenFeature}{
+					}{
+					}
+					
+					\umlclass[x=10, y=-8]{TopicFeature}{
+					}{
+					}
+					
+				\end{umlpackage}
+				
+				\umlclass[x=0, y=4]{LinguisticFeaturesAggregate}{
+				}{
+				}
+				
+				\umlclass[x=6, y=4]{LinguisticDAO}{
+				}{
+				}
+				
+				\umlclass[x=12, y=4]{LinguisticService}{
+				}{
+				}
+				
+				\umlclass[x=18, y=4]{LinguisticTranskriptDAO}{
+				}{
+				}
+				
+				\umlclass[x=24, y=4]{TopicDAO}{
+				}{
+				}
+				
+			\end{umlpackage}
+			
+			%NLP
+			
+			\begin{umlpackage}[x=55,y=-10]{nlp}
+				\begin{umlpackage}[x=0, y=-5]{extractor}
+					\umlclass{AudioTokenFeatureExtractor}{}{}
+					\umlclass[x=8]{DependencyFeatureExtractor}{}{}
+					\umlclass[x=16]{LinguisticFeatureExtractor}{}{}
+					\umlclass[x=24]{MetadataFeatureExtractor}{}{}
+					\umlclass[x=30]{NamedEntityFeatureExtractor}{}{}
+					\umlclass[x=0, y=-5]{PosFeatureExtractor}{}{}
+					\umlclass[x=8, y=-5]{SentenceFeatureExtractor}{}{}
+					\umlclass[x=16, y=-5]{SentimentFeatureExtractor}{}{}
+					\umlclass[x=24, y=-5]{TokenFeatureExtractor}{}{}
+					\umlclass[x=30, y=-5]{TopicFeatureExtractor}{}{}
+				\end{umlpackage}
+				
+				\begin{umlpackage}[x=0,y=-15]{util}
+					\umlclass{JCasAnnotationPrinter}{}{}
+					\umlclass[x=8]{ResourceExtractor}{}{}
+					\umlclass[x=16]{SafeCoveredTextExtractor}{}{}		
+				\end{umlpackage}
+				
+				\umlclass{DbSpeechImporter}{}{}
+				\umlclass[x=4]{LinguisticFeaturePipline}{}{}
+				\umlclass[x=8]{NlpPiplineService}{}{}
+				\umlclass[x=12]{XmiAnnotationImporter}{}{}
+			\end{umlpackage}
+			
+				%plenarprotocol
+			
+			\begin{umlpackage}[x=60,y=-40]{plenarprotocol}
+				\umlclass[x=0]{IPlenarprotocol}{}{}
+				\umlclass[x=6]{Plenarprotocol\_impl}{}{}
+				\umlclass[x=12]{PlenarprotocolDAO}{}{}
+				
+			\end{umlpackage}
+			
+			%rest
+			
+			\begin{umlpackage}[x=80,y=-30]{rest}
+				\umlclass[x=0]{JavalinConfig}{}{}
+				\umlclass[x=4]{RESTHandler}{}{}
+			\end{umlpackage}
+			
+			%Speaker
+			\begin{umlpackage}[x=80,y=-40]{speaker}
+				\begin{umlpackage}[x=0,y=-10]{interfaces}
+					\umlclass[x=8]{Speaker}{}{}
+				\end{umlpackage}
+				\umlclass[x=0]{Speaker\_impl}{}{}
+				\umlclass[x=4]{SpeakerDAO}{}{}
+				\umlclass[x=8]{SpeakerService}{}{}
+				
+			\end{umlpackage}
+			
+			%Speech
+			\begin{umlpackage}[x=20,y=-40]{speech}
+				\begin{umlpackage}[x=0,y=-10]{interfaces}
+					
+					\umlclass[x=0]{IAgenda}{}{}
+					\umlclass[x=4]{IProtocol}{}{}
+					\umlclass[x=8]{ISpeech}{}{}
+				\end{umlpackage}
+				\begin{umlpackage}[x=0,y=-15]{util}
+					\umlclass[x=0]{VideoEncoder}{}{}
+				\end{umlpackage}
+				\umlclass[x=0]{Agenda\_impl}{}{}
+				\umlclass[x=6]{LoadVideoFromGridFS}{}{}
+				\umlclass[x=12]{Protocol\_impl}{}{}
+				\umlclass[x=18]{Speech\_impl}{}{}
+				\umlclass[x=24]{SpeechDAO}{}{}
+				\umlclass[x=30]{SpeechService}{}{}
+			\end{umlpackage}
+			
+			%Utility
+			\begin{umlpackage}[x=0,y=-50]{utility}
+				\umlclass[x=0]{ComparisonService}{}{}
+				\umlclass[x=4]{Factory}{}{}
+				\umlclass[x=8]{Factory\_impl}{}{}
+				\umlclass[x=12]{PeriodicTask}{}{}
+			\end{umlpackage}
+			
+			%Main
+			\umlclass[x=20, y=-65]{Main}{}{}
+		
+					
+					\end{umlpackage}
+				\end{scope}
+			\end{tikzpicture}
+		}
+	\end{center}
+
+
+
+
+
+	% Die einzelnen Packages und ihre Methoden
+	%database
+\newpage
+	\section*{database}
+
+	\begin{center}
+		\resizebox{\textwidth}{!}{%
+			\begin{tikzpicture}[scale=0.8]
+				\begin{scope}[xshift=5cm]
+					
+					\begin{umlpackage}[x=0,y=0]{database}
+						\umlclass[x=30]{MongoDBConfig}
+						{
+							- remotehost : String \\
+							- remotedatabase : String \\
+							- remoteuser : String \\	
+							- remotepassword : String \\
+							- remoteport : String
+						}
+						{
+							+ MongoDBConfig() : void \\
+							+ getURI() : String \\
+							+ getHost() : String \\
+							+ getDatabase() : String \\
+							+ getUser() : String \\
+							+ getPassword() : String \\
+							+ getPort() : String
+						}
+						\umlclass[x=0, y= -4]{MongoDBHandler}
+						{
+							- instance : MongoDBHandler \\
+							- mongoClient : MongoClient \\
+							- database : MongoDatabase \\
+							- gridFSBucket : GridFSBucket \\
+							- config : MongoDBConfig
+						}
+						{
+							+ MongoDBHandler() : void \\
+							+ MongoDBHandler(boolean) : void \\
+							+ getInstance() : MongoDBHandler \\
+							+ shutdown() : void \\
+							+ getConnectionString() : String \\
+							+ getDatabaseName() : String \\
+							+ connect() : MongoDatabase \\
+							+ close() : void \\
+							+ getPlenarprotocolsCollection() : MongoCollection\textless Document\textgreater \\
+							+ getSpeakerCollection() : MongoCollection\textless Document\textgreater \\
+							+ getSpeechCollection() : MongoCollection\textless Document\textgreater \\
+							+ getLinguisticFeaturesTranskriptCollection() : MongoCollection\textless Document\textgreater \\
+							+ getLinguisticFeaturesCollection() : MongoCollection\textless Document\textgreater \\
+							+ getTopicsCollection() : MongoCollection\textless Document\textgreater \\
+							+ getCollection(String) : MongoCollection\textless Document\textgreater \\
+							+ insertDocument(String, Document) : void \\
+							+ findDocuments(String, Bson) : List\textless Document\textgreater \\
+							+ findOne(String, Bson) : Document \\
+							+ findAll(String) : List\textless Document\textgreater \\
+							+ updateDocuments(String, Bson, Bson) : UpdateResult \\
+							+ deleteDocuments(String, Bson) : DeleteResult \\
+							+ aggregateDocuments(String, List\textless Bson\textgreater) : AggregateIterable\textless Document\textgreater \\
+							+ countDocuments(String, Bson) : long \\
+							+ getGridFSBucket() : GridFSBucket
+						}
+						\umlclass[x=15]{CreateSearchCollections}
+						{
+							- topicToRedeIds : Map<String, Set<String>> \\
+							- topicDocuments : List<Document>
+						}
+						{
+							+ main(String[]) : void \\
+						}
+					\end{umlpackage}
+					
+				\end{scope}
+			\end{tikzpicture}
+		}
+	\end{center}
+	
+	
+	
+	
+	
+%export
+	
+	\newpage
+	\section*{export}
+	\begin{center}
+		\resizebox{\textwidth}{!}{%
+			\begin{tikzpicture}[scale=0.8]
+				\begin{scope}[xshift=5cm]
+					
+					
+					\begin{umlpackage}[x=20,y=0]{export}
+						\umlclass{ExportManager}{}
+						{
+							+ clearExports() : void \\
+							+ getExportData(String) : byte[] \\
+							+ createExportInProgress(String) : void \\
+							+ markFailedExport(String) : void \\
+							+ createFinishedExport(String, byte[]) : void \\
+							+ createFinishedExport(String, String) : void \\
+							+ findExports() : Map\textless String, String\textgreater \\
+							- createExportDirIfNotExists() : void
+						}
+						
+						\umlclass[x=10]{LatexCompiler}{}{
+							+ compile(String) : Path \\
+							+ compileToByteArray(String) : byte[] 
+						}
+						
+						\umlclass[x=0, y=-5]{MultiplePlenarprotocolsExporter}{}{
+							+ toTex(List\textless String\textgreater, boolean) : String \\
+							+ toXML(List\textless String\textgreater) : String \\
+							+ toPDF(List\textless String\textgreater, boolean) : byte[]
+						}
+						
+						\umlclass[x=10, y=-5]{TopicExporter}{}{
+							+ toTex(String, boolean) : String \\
+							+ toPDF(String, boolean) : byte[] \\
+							+ toXML(String) : String
+						}
+						
+					\end{umlpackage}
+					
+				\end{scope}
+			\end{tikzpicture}
+		}
+	\end{center}
+	
+	
+	
+	
+	
+	
+	
+	
+		\newpage
+	\section*{importer}
+	\begin{center}
+		\resizebox{\textwidth}{!}{%
+			\begin{tikzpicture}[scale=0.8]
+				\begin{scope}[xshift=5cm]
+						\begin{umlpackage}[x=0,y=0]{importer}
+						\umlclass{ImporterPlenarprotocol}{}{
+							+ main(String[]) : void
+						}
+						
+						\umlclass[x=0]{ImportHandler}{
+							- BASE\_URL : String \\
+							- LIMIT\_PARAM : String \\
+							- mongoDBHandler : MongoDBHandler \\
+							- minIndex : int \\
+							- offset : int
+						}{
+							+ ImportHandler(int) : void \\
+							+ main(String[]) : void \\
+							+ importAllProtocols() : void \\
+							+ processProtocol(String) : int \\
+							+ extractProtocolIndex(String) : int \\
+							+ extractProtocolInfo(Document) : Document \\
+							+ extractAgendaInfo(Element) : Document \\
+							+ createSpeechDocument(Element, Document, Document) : Document \\
+							+ extractSpeakerId(Element) : String \\
+							+ extractTextContent(Element, String) : List\textless Document\textgreater \\
+							+ extractNestedTextContent(Element, String, String, List\textless Document\textgreater) : void \\
+							+ extractSpeechText(Element) : String \\
+							+ getCurrentSpeakerForElement(Element, String) : String \\
+							+ generateRandomId() : String \\
+							+ parseGermanDate(String) : long \\
+							+ parseTimeToMillis(String, long) : long \\
+							+ downloadContent(String) : String
+						}
+						
+						\umlclass[x=20, y= 0]{ImportPictures}{
+							- BASE\_URL : String
+						}{
+							+ main(String[]) : void \\
+							+ createSpeakerMap(MongoCollection\textless Document\textgreater) : Map\textless String, Document\textgreater \\
+							+ sendGetRequest(String) : String \\
+							+ sendPostRequest(String, String) : String \\
+							+ downloadImage(String) : byte[] \\
+							+ extractCsrfToken(String) : String \\
+							+ findMatchesAndUpdateCollection(String, Map\textless String, Document\textgreater, MongoCollection\textless Document\textgreater) : int \\
+							+ extractNameFromContext(String) : String \\
+							+ findMatchingSpeaker(String, Map\textless String, Document\textgreater) : Document \\
+							+ updateSpeechesWithSpeakerImageUrl(String, String, MongoCollection\textless Document\textgreater) : int \\
+							+ updateSpeechesWithSpeakerImage(String, String, byte[], MongoCollection\textless Document\textgreater) : int
+						}
+						
+						\umlclass[x=0, y= -10]{ImportSpeaker}{
+							- xmlFile : File \\
+							- fis : FileInputStream \\
+							- dbFactory : DocumentBuilderFactory \\
+							- dBuilder : DocumentBuilder \\
+							- xmlDoc : org.w3c.dom.Document \\
+							- sdf : SimpleDateFormat
+						}{
+							+ main(String[]) : void \\
+							- getTagValue(String, Element) : String
+						}
+						
+						\umlclass[x=10, y=-10]{ImportVideos}{
+							- BASE\_URL : String \\
+							- VIDEO\_ID\_PATTERN : Pattern \\
+							- DOWNLOAD\_DIRECTORY : String \\
+							- SKIP\_TITLES : Set\textless String\textgreater
+						}{
+							+ main(String[]) : void \\
+							- splitSpeakerName(String) : String[] \\
+							- shouldSkipSpeaker(String, String) : boolean \\
+							- extractVideoId(String) : String \\
+							- downloadFile(String) : byte[]
+						}
+						
+						\umlclass[x=20, y = -10]{MergeSpeakerInfo}{}{
+							+ main(String[]) : void
+						}
+						
+					\end{umlpackage}
+				\end{scope}
+			\end{tikzpicture}
+		}
+	\end{center}
+	
+			\newpage
+	\section*{linguisticFeatures}
+	\begin{center}
+		\resizebox{\textwidth}{!}{%
+			\begin{tikzpicture}[scale=0.8]
+				\begin{scope}[xshift=5cm]
+						\begin{umlpackage}[x=0,y=0]{linguisticFeatures}
+						
+						\begin{umlpackage}[x=0,y=0]{Interfaces}
+							\umlclass{IAudioTokenFeature}{
+								- begin : int \\
+								- end : int \\
+								- coveredText : String \\
+								- timeStart : double \\
+								- timeEnd : double
+							}{
+								+ get/set... : void
+							}
+							
+							
+							\umlclass[x=6]{IDependencyFeature}{
+								- begin : int \\
+								- end : int \\
+								- coveredText : String \\
+								- dependencyType : String \\
+								- governor : String \\
+								- dependent : String
+							}{
+								+ get/set... : void
+							}
+							
+							
+							\umlclass[x=15]{ILinguisticFeaturesAggregate}{
+								- metadata : MetadataFeature\_Impl \\
+								- sentences : List\textless SentenceFeature\_Impl\textgreater \\
+								- tokens : List\textless TokenFeature\_Impl\textgreater \\
+								- sentiments : List\textless SentimentFeature\_Impl\textgreater \\
+								- namedEntities : List\textless NamedEntityFeature\_Impl\textgreater \\
+								- dependencies : List\textless DependencyFeature\_Impl\textgreater \\
+								- topics : List\textless TopicFeature\_Impl\textgreater \\
+								- posCounts : Map\textless String, Integer\textgreater \\
+								- namedEntityCounts : Map\textless String, Integer\textgreater \\
+								- dependencyCounts : Map\textless String, Integer\textgreater \\
+								- lemmaFrequency : Map\textless String, Integer\textgreater \\
+								- overallSentiment : double \\
+								- sentimentDistribution : Map\textless String, Double\textgreater \\
+								- topicCounts : Map\textless String, Integer\textgreater \\
+								- audioTokens : List\textless AudioTokenFeature\_Impl\textgreater \\
+								- redeId : String \\
+								- posFeatures : List\textless PosFeature\_Impl\textgreater
+							}{
+								+ get/set... : void
+							}
+							
+							
+							\umlclass[x=25, y=0]{IMetadataFeature}{
+								- documentTitle : String \\
+								- language : String \\
+								- documentId : String
+							}{
+								+ get/set... : void
+							}
+							
+							
+							\umlclass[x=31]{IPosFeature}{
+								- begin : int \\
+								- end : int \\
+								- coveredText : String \\
+								- pos : String \\
+								- coarsePos : String
+							}{
+								+ get/set... : void
+							}
+							
+							\umlclass[x=37]{ISentenceFeature}{
+								- begin : int \\
+								- end : int \\
+								- coveredText : String
+							}{
+								+ get/set... : void
+							}
+							
+							\umlclass[x=43]{ISentimentFeature}{
+								- begin : int \\
+								- end : int \\
+								- coveredText : String \\
+								- sentiment : double \\
+								- posScore : double \\
+								- neuScore : double \\
+								- negScore : double \\
+								- subjectivity : double
+							}{
+								+ get/set... : void
+							}
+							
+							\umlclass[x=49]{ISentenceFeature}{
+								- begin : int \\
+								- end : int \\
+								- coveredText : String
+							}{
+								+ get/set... : void
+							}
+							
+							\umlclass[x=55]{ITokenFeature}{
+								- begin : int \\
+								- end : int \\
+								- coveredText : String \\
+								- lemma : String \\
+								- pos : String
+							}{
+								+ get/set... : void
+							}
+							
+							\umlclass[x=61]{ITopicFeature}{
+								- begin : int \\
+								- end : int \\
+								- coveredText : String \\
+								- value : String \\
+								- score : double
+							}{
+								+ get/set... : void
+							}
+							
+						\end{umlpackage}
+						
+						\begin{umlpackage}[x=0,y=-15]{SubClasses}
+							\umlclass{AudioTokenFeature}{
+								- begin : int \\
+								- end : int \\
+								- coveredText : String \\
+								- timeStart : double \\
+								- timeEnd : double
+							}{
+								+ get/set... : void
+							}
+							
+							\umlclass[x=8]{DependencyFeature}{
+								- begin : int \\
+								- end : int \\
+								- coveredText : String \\
+								- dependencyType : String \\
+								- governor : String \\
+								- dependent : String
+							}{
+								+ get/set... : void
+							}
+							
+							\umlclass[x=16]{MetadataFeature}{
+								- documentTitle : String \\
+								- language : String \\
+								- documentId : String
+							}{
+								+ get/set... : void
+							}
+							
+							\umlclass[x=24]{PosFeature}{
+								- begin : int \\
+								- end : int \\
+								- coveredText : String \\
+								- pos : String \\
+								- coarsePos : String
+							}{
+								+ get/set... : void
+							}
+							
+							\umlclass[x=32]{SentenceFeature}{
+								- begin : int \\
+								- end : int \\
+								- coveredText : String
+							}{
+								+ SentenceFeature\_Impl() : void \\
+								+ SentenceFeature\_Impl(int, int, String) : void \\
+								+ get/set... : void
+							}
+							
+							
+							\umlclass[x=45]{SentimentFeature}{
+								- begin : int \\
+								- end : int \\
+								- coveredText : String \\
+								- sentiment : double \\
+								- posScore : double \\
+								- neuScore : double \\
+								- negScore : double \\
+								- subjectivity : double
+							}{
+								+ SentimentFeature\_Impl() : void \\
+								+ SentimentFeature\_Impl(int, int, String, double, double, double, double, double) : void \\
+								+ get/set... : void
+							}
+							
+							
+							\umlclass[x=60]{TokenFeature}{
+								- begin : int \\
+								- end : int \\
+								- coveredText : String \\
+								- lemma : String \\
+								- pos : String
+							}{
+								+ TokenFeature\_Impl() : void \\
+								+ TokenFeature\_Impl(int, int, String, String, String) : void \\
+								+ get/set... : void
+							}
+							
+							\umlclass[x=72]{TopicFeature}{
+								- begin : int \\
+								- end : int \\
+								- coveredText : String \\
+								- value : String \\
+								- score : double
+							}{
+								+ TopicFeature\_Impl() : void \\
+								+ TopicFeature\_Impl(int, int, String, String, double) : void \\
+								+ get/set... : void
+							}
+							
+						\end{umlpackage}
+						
+						\umlclass[x=0, y=-30]{LinguisticFeaturesAggregate}{
+							- redeId : String \\
+							- metadata : MetadataFeature\_Impl \\
+							- sentences : List\textless SentenceFeature\_Impl\textgreater \\
+							- tokens : List\textless TokenFeature\_Impl\textgreater \\
+							- sentiments : List\textless SentimentFeature\_Impl\textgreater \\
+							- namedEntities : List\textless NamedEntityFeature\_Impl\textgreater \\
+							- dependencies : List\textless DependencyFeature\_Impl\textgreater \\
+							- topics : List\textless TopicFeature\_Impl\textgreater \\
+							- audioTokens : List\textless AudioTokenFeature\_Impl\textgreater \\
+							- posFeatures : List\textless PosFeature\_Impl\textgreater \\
+							- posCounts : Map\textless String, Integer\textgreater \\
+							- namedEntityCounts : Map\textless String, Integer\textgreater \\
+							- dependencyCounts : Map\textless String, Integer\textgreater \\
+							- lemmaFrequency : Map\textless String, Integer\textgreater \\
+							- overallSentiment : double \\
+							- sentimentDistribution : Map\textless String, Double\textgreater \\
+							- topicCounts : Map\textless String, Integer\textgreater \\
+							- posCountsCoarse : Map\textless String, Integer\textgreater \\
+							- topicsSearchField : String
+						}{
+							+ get/set... : void \\
+							+ removeOverallTextTopics() : void \\
+							+ calculateTopicsSearchField() : void \\
+							+ calculateStatistics() : void \\
+							+ calculatePOSCounts() : void \\
+							+ calculateNamedEntityCounts() : void \\
+							+ calculateOverallSentiment() : void \\
+							+ calculateLemmaFrequency() : void \\
+							+ calculateDependencyCounts() : void \\
+							+ calculateSentimentDistribution() : void \\
+							+ calculateTopicCounts() : void
+						}
+						
+						\umlclass[x=15, y=-30]{LinguisticDAO}{
+							- collection : MongoCollection\textless Document\textgreater \\
+							- dbHandler : MongoDBHandler \\
+							- gson : Gson
+						}{
+							+ LinguisticDAO() : void \\
+							+ save(LinguisticFeaturesAggregate\_Impl) : void \\
+							+ findByDocumentId(String) : Optional\textless LinguisticFeaturesAggregate\_Impl\textgreater \\
+							+ update(LinguisticFeaturesAggregate\_Impl) : void \\
+							+ delete(String) : void \\
+							+ parseDocument(Document) : LinguisticFeaturesAggregate\_Impl \\
+							+ getDocumentFromClass(LinguisticFeaturesAggregate\_Impl) : Document
+						}
+						
+						\umlclass[x=30, y=-30]{LinguisticService}{
+							- linguisticDAO : LinguisticDAO
+						}{
+							+ LinguisticService() : void \\
+							+ createLinguisticFeatures(LinguisticFeaturesAggregate\_Impl) : void \\
+							+ getLinguisticFeatures(String) : LinguisticFeaturesAggregate\_Impl \\
+							+ updateLinguisticFeatures(String, LinguisticFeaturesAggregate\_Impl) : void \\
+							+ deleteLinguisticFeatures(String) : void
+						}
+						
+						\umlclass[x=45, y=-30]{LinguisticTranskriptDAO}{
+							- collection : MongoCollection\textless Document\textgreater \\
+							- dbHandler : MongoDBHandler \\
+							- gson : Gson
+						}{
+							+ LinguisticTranskriptDAO() : void \\
+							+ save(LinguisticFeaturesAggregate\_Impl) : void \\
+							+ findByDocumentId(String) : Optional\textless LinguisticFeaturesAggregate\_Impl\textgreater \\
+							+ update(LinguisticFeaturesAggregate\_Impl) : void \\
+							+ delete(String) : void \\
+							+ close() : void \\
+							+ parseDocument(Document) : LinguisticFeaturesAggregate\_Impl \\
+							+ getDocumentFromClass(LinguisticFeaturesAggregate\_Impl) : Document
+						}
+						
+						\umlclass[x=60, y=-30]{TopicDAO}{
+							- collection : MongoCollection\textless Document\textgreater \\
+							- dbHandler : MongoDBHandler
+						}{
+							+ TopicDAO() : void \\
+							+ getAllTopics() : List\textless Document\textgreater \\
+							+ getSpeechesByTopic(String) : List\textless Speech\_impl\textgreater \\
+							+ getSpeechIdsByTopics(List\textless String\textgreater) : Set\textless String\textgreater \\
+							+ getSpeechesByTopics(List\textless String\textgreater) : List\textless Speech\_impl\textgreater \\
+							+ save(String) : void \\
+							+ findByTopic(String) : String \\
+							+ update(String) : void \\
+							+ delete(String) : void \\
+							+ close() : void
+						}
+						
+					\end{umlpackage}
+				\end{scope}
+			\end{tikzpicture}
+		}
+	\end{center}
+	
+	
+		\section*{NLP}
+	\begin{center}
+		\resizebox{\textwidth}{!}{%
+			\begin{tikzpicture}[scale=0.8]
+				\begin{scope}[xshift=5cm]
+					\begin{umlpackage}[x=55,y=-10]{nlp}
+						\begin{umlpackage}[x=0, y=0]{extractor}
+							\umlclass{AudioTokenFeatureExtractor}{}{
+								+ extract(JCas) : List\textless IAudioTokenFeature\textgreater
+							}
+							
+							\umlclass[x=10]{DependencyFeatureExtractor}{}{
+								+ extract(JCas) : List\textless IDependencyFeature\textgreater
+							}
+							
+							\umlclass[x=18]{LinguisticFeatureExtractor}{}{
+								+ extract(JCas) : List\textless T\textgreater
+							}
+							
+							\umlclass[x=26]{MetadataFeatureExtractor}{}{
+								+ extract(JCas) : MetadataFeature\_Impl
+							}
+							
+							\umlclass[x=35]{NamedEntityFeatureExtractor}{}{
+								+ extract(JCas) : List\textless INamedEntityFeature\textgreater
+							}
+							
+							\umlclass[x=0, y=-5]{PosFeatureExtractor}{}{
+								+ extract(JCas) : List\textless IPosFeature\textgreater
+							}
+							
+							\umlclass[x=9, y=-5]{SentenceFeatureExtractor}{}{
+								+ extract(JCas) : List\textless ISentenceFeature\textgreater
+							}
+							
+							\umlclass[x=18, y=-5]{SentimentFeatureExtractor}{}{
+								+ extract(JCas) : List\textless ISentimentFeature\textgreater
+							}
+							
+							\umlclass[x=26, y=-5]{TokenFeatureExtractor}{}{
+								+ extract(JCas) : List\textless ITokenFeature\textgreater
+							}
+							
+							\umlclass[x=35, y=-5]{TopicFeatureExtractor}{}{
+								+ extract(JCas) : List\textless ITopicFeature\textgreater
+							}
+							
+						\end{umlpackage}
+						
+						\begin{umlpackage}[x=0,y=-15]{util}
+							\umlclass{JCasAnnotationPrinter}{}{
+								+ printAnnotationsFromAllViews(JCas, boolean) : void
+							}
+							
+							\umlclass[x=10]{ResourceExtractor}{}{
+								+ main(String[]) : void \\
+								- extractResources(String, String) : void \\
+								- extractFile(File, File) : void \\
+								- removeGzExtension(String) : String
+							}
+							
+							\umlclass[x=20]{SafeCoveredTextExtractor}{}		{
+								+ getSafeCoveredText(Annotation, String) : String \\
+								+ getSafeEnd(Annotation, String) : int
+							}
+							
+						\end{umlpackage}
+						
+						\umlclass[x=40,y=-20]{DbSpeechImporter}{
+							- LOGGER : Logger \\
+							- THREAD\_COUNT : int \\
+							- BATCH\_SIZE : int \\
+							- TIMEOUT\_HOURS : int \\
+							- speechMap : Map\textless String, Speech\_impl\textgreater \\
+							- mongoDbHandler : MongoDBHandler \\
+							- speechDAO : SpeechDAO \\
+							- linguisticDAO : LinguisticDAO \\
+							- linguisticTranskriptDAO : LinguisticTranskriptDAO \\
+							- loadVideoFromGridFS : LoadVideoFromGridFS
+						}{
+							+ DbSpeechImporter() : void \\
+							+ main(String[]) : void \\
+							+ importSpeeches(List\textless String\textgreater, boolean) : void \\
+							- createThreadPool() : ExecutorService \\
+							- fetchSpeeches(List\textless String\textgreater, ExecutorService) : void \\
+							- fetchSpeechBatch(List\textless String\textgreater, AtomicInteger, int) : void \\
+							- processSpeeches(ExecutorService, boolean) : void \\
+							- processSpeechBatch(List\textless Speech\_impl\textgreater, AtomicInteger, int, boolean) : void \\
+							- processSingleSpeech(Speech\_impl, NlpPipelineService, NlpPipelineService, NlpPipelineService, LinguisticFeaturePipeline, AtomicInteger, int, boolean) : void \\
+							- processTextComponent(JCas, NlpPipelineService, LinguisticFeaturePipeline, String) : void \\
+							- processVideoComponent(JCas, NlpPipelineService, String) : void \\
+							- processTranscriptComponent(JCas, NlpPipelineService, LinguisticFeaturePipeline, String) : void \\
+							- isEmpty(String) : boolean \\
+							- shutdownExecutor(ExecutorService) : void \\
+							- printSummary(long, int) : void
+						}
+						
+						\umlclass[x=50]{LinguisticFeaturePipline}{
+							- transkriptDAO : LinguisticTranskriptDAO \\
+							- textDao : LinguisticDAO \\
+							- linguisticFeaturesAggregate : LinguisticFeaturesAggregate\_Impl
+						}{
+							+ LinguisticFeaturePipeline(LinguisticDAO, LinguisticTranskriptDAO) : void \\
+							+ processJCAS(JCas, TypeOfImport) : void
+						}
+						
+						\umlclass[x=50, y=-10]{NlpPiplineService}{
+							- composer : DUUIComposer
+						}{
+							+ NlpPipelineService(DocumentType) : void \\
+							+ processCas(JCas) : void \\
+							+ getComposer() : DUUIComposer
+						}
+						
+						\umlclass[x=65]{XmiAnnotationImporter}{
+							- threadLocalJCas : ThreadLocal\textless JCas\textgreater \\
+							- linguisticDAO : LinguisticDAO \\
+							- linguisticTranskriptDAO : LinguisticTranskriptDAO \\
+							- executor : ExecutorService
+						}{
+							+ XmiAnnotationImporter() : void \\
+							+ importAnnotations(String) : void \\
+							+ pushJCas(JCas, String, LinguisticDAO, LinguisticTranskriptDAO) : void \\
+							+ main(String[]) : void
+						}
+						
+					\end{umlpackage}
+				
+				\end{scope}
+			\end{tikzpicture}
+		}
+	\end{center}
+	
+	
+	
+	\newpage
+	
+	
+	
+	\section*{plenarprotokol}
+		\begin{center}
+		\resizebox{\textwidth}{!}{%
+			\begin{tikzpicture}[scale=0.8]
+				\begin{scope}[xshift=5cm]
+									%plenarprotocol
+				
+				\begin{umlpackage}[x=0,y=0]{plenarprotocol}
+					\umlclass[x=0]{IPlenarprotocol}{}{
+						+ getId() : String \\
+						+ setId(String) : void \\
+						+ getProtocol() : IProtocol \\
+						+ setProtocol(IProtocol) : void \\
+						+ getSpeeches() : List\textless ISpeech\textgreater \\
+						+ setSpeeches(List\textless ISpeech\textgreater) : void \\
+						+ toTex(boolean) : String
+					}
+					
+					\umlclass[x=15]{Plenarprotocol\_impl}{
+						- \_id : String \\
+						- protocol : IProtocol \\
+						- speeches : List\textless ISpeech\textgreater
+					}{
+						+ Plenarprotocol\_impl(String, IProtocol, List\textless ISpeech\textgreater) : void \\
+						+ getId() : String \\
+						+ setId(String) : void \\
+						+ getProtocol() : IProtocol \\
+						+ setProtocol(IProtocol) : void \\
+						+ getSpeeches() : List\textless ISpeech\textgreater \\
+						+ setSpeeches(List\textless ISpeech\textgreater) : void \\
+						+ toTex(boolean) : String \\
+						+ toPDF(boolean) : byte[] \\
+						+ toXML() : String \\
+						+ getAgendaSpeechesMap() : Map\textless IAgenda, List\textless ISpeech\textgreater\textgreater
+					}
+					
+					\umlclass[x=30]{PlenarprotocolDAO}{
+						- dbHandler : MongoDBHandler
+					}{
+						+ PlenarprotocolDAO(MongoDBHandler) : void \\
+						+ PlenarprotocolDAO() : void \\
+						+ getProtocolById(String) : Plenarprotocol\_impl \\
+						+ getAllProtocols() : List\textless Plenarprotocol\_impl\textgreater \\
+						+ getProtocolsAmount() : Long \\
+						+ getMaxProtocolIndex() : Integer
+					}
+					
+					
+				\end{umlpackage}
+				\end{scope}
+			\end{tikzpicture}
+		}
+	\end{center}
+	\newpage
+	
+	\section*{rest}
+	\begin{center}
+		\resizebox{\textwidth}{!}{%
+			\begin{tikzpicture}[scale=0.8]
+				\begin{scope}[xshift=5cm]
+						\begin{umlpackage}[x=0,y=0]{rest}
+						\umlclass[x=0]{JavalinConfig}{}{
+							+ JavalinConfig(String) : void \\
+							+ getJavalinPort() : int \\
+							+ showBanner() : boolean
+						}
+						
+						\umlclass[x=15]{RESTHandler}{
+							- dbHandler : MongoDBHandler \\
+							- speechDAO : SpeechDAO \\
+							- linguisticDAO : LinguisticDAO \\
+							- plenarprotocolDAO : PlenarprotocolDAO \\
+							- topicDAO : TopicDAO
+						}{
+							+ registerRoutes(Javalin) : void \\
+							+ showIndexPage(Context) : void \\
+							+ getExports(Context) : void \\
+							+ getExportData(Context) : void \\
+							+ clearExports(Context) : void \\
+							+ exportSpeech(Context) : void \\
+							+ exportBySpeaker(Context) : void \\
+							+ export(Context, boolean, String, String, Object, boolean) : void \\
+							+ exportByTopic(Context) : void \\
+							+ exportByProtocol(Context) : void \\
+							+ exportMultipleProtocols(Context) : void \\
+							+ getAllSpeeches(Context) : void \\
+							+ getSpeechById(Context) : void \\
+							+ getLinguisticFeatures(Context) : void \\
+							+ getLinguisticFeatureById(Context) : void \\
+							+ showVisualizations(Context) : void \\
+							+ getAllTopics(Context) : void \\
+							+ getLinguisticFeaturesByTopic(Context) : void \\
+							+ getAllSpeechesService(Context) : void \\
+							+ showSpeechDetails(Context) : void \\
+							+ getAllSpeechesPaginated(Context) : void \\
+							+ getAllAvailableFactions(MongoCollection<Document>) : List<String> \\
+							+ deleteSpeech(Context) : void \\
+							+ addComment(Context) : void \\
+							+ updateSpeech(Context) : void
+						}
+						
+					\end{umlpackage}
+				\end{scope}
+			\end{tikzpicture}
+		}
+	\end{center}
+	\newpage
+	\section*{speaker}
+	\begin{center}
+		\resizebox{\textwidth}{!}{%
+			\begin{tikzpicture}[scale=0.8]
+				\begin{scope}[xshift=5cm]
+						\begin{umlpackage}[x=0,y=0]{speaker}
+						\begin{umlpackage}[x=0,y=0]{interfaces}
+							\umlclass[x=0]{Speaker}{
+								- \_id : String \\
+								- name : String \\
+								- firstName : String \\
+								- title : String \\
+								- geburtsdatum : LocalDate \\
+								- geburtsort : String \\
+								- sterbedatum : LocalDate \\
+								- geschlecht : String \\
+								- beruf : String \\
+								- akademischertitel : String \\
+								- familienstand : String \\
+								- religion : String \\
+								- vita : String \\
+								- party : String \\
+								- memberships : Set<Object> \\
+								- imageUrl : String \\
+								- imageData : String
+							}{
+								+ get/set... : void \\
+								+ toTex(boolean) : String
+							}
+							
+						\end{umlpackage}
+						\umlclass[x=20]{Speaker\_impl}{
+							- \_id : String \\
+							- name : String \\
+							- firstName : String \\
+							- title : String \\
+							- geburtsdatum : LocalDate \\
+							- geburtsort : String \\
+							- sterbedatum : LocalDate \\
+							- geschlecht : String \\
+							- beruf : String \\
+							- akademischertitel : String \\
+							- familienstand : String \\
+							- religion : String \\
+							- vita : String \\
+							- party : String \\
+							- memberships : Set<Object> \\
+							- imageUrl : String \\
+							- imageData : String
+						}{
+							+ Speaker\_impl(String, String, String) : void \\
+							+ Speaker\_impl(String, String, String, String, String, String, String, String, String, String, String, String, String, Set<Object>, String, String) : void \\
+							+ Speaker\_impl(String, String, String, String, LocalDate, String, LocalDate, String, String, String, String, String, String, Set<Object>, String, String) : void \\
+							+ get/set... : void \\
+							+ convertStringToDate(String) : LocalDate \\
+							+ toTex(boolean) : String \\
+							+ toXML() : String \\
+							+ toPDF(boolean) : byte[]
+						}
+						
+						\umlclass[x=50]{SpeakerDAO}{
+							- speakerCollection : MongoCollection\textless Document\textgreater
+						}{
+							+ SpeakerDAO(MongoCollection\textless Document\textgreater) : void \\
+							+ findById(String) : Speaker\_impl \\
+							+ loadAll() : List\textless Speaker\_impl\textgreater
+						}
+						
+						\umlclass[x=60]{SpeakerService}{}{}
+						
+					\end{umlpackage}
+				\end{scope}
+			\end{tikzpicture}
+		}
+	\end{center}
+	
+	
+	\section*{speech}
+	\begin{center}
+		\resizebox{\textwidth}{!}{%
+			\begin{tikzpicture}[scale=0.8]
+				\begin{scope}[xshift=5cm]
+					\begin{umlpackage}[x=20,y=-40]{speech}
+						\begin{umlpackage}[x=0,y=0]{interfaces}
+							
+							\umlclass[x=0]{IAgenda}{
+								- index : String \\
+								- id : String \\
+								- title : String
+							}{
+								+ get/set... : void
+							}
+							
+							\umlclass[x=10]{IProtocol}{
+								- date : Long \\
+								- starttime : Long \\
+								- endtime : Long \\
+								- index : Integer \\
+								- title : String \\
+								- place : String \\
+								- wp : Integer
+							}{
+								+ get/set... : void
+							}
+							
+							\umlclass[x=20]{ISpeech}{
+								- \_id : String \\
+								- text : String \\
+								- speaker : String \\
+								- protocol : IProtocol \\
+								- textContent : ArrayList<Object> \\
+								- agenda : IAgenda \\
+								- speakerObject : Speaker
+							}{
+								+ get/set... : void \\
+								+ toTex(boolean) : String
+							}
+							
+						\end{umlpackage}
+						\begin{umlpackage}[x=30,y=0]{util}
+							\umlclass[x=0]{VideoEncoder}{
+							}{
+								+ encodeVideoToBase64(File) : String \\
+								+ main(String[]) : void
+							}
+							
+						\end{umlpackage}
+						\umlclass[x=0, y=-20]{Agenda\_impl}{
+							- index : String \\
+							- id : String \\
+							- title : String
+						}{
+							+ Agenda\_impl(String, String, String) : void \\
+							+ get/set... : void
+						}
+						
+						\umlclass[x=15, y = -20]{LoadVideoFromGridFS}{
+							- mongoDbHandler : MongoDBHandler \\
+							- gridFSBucket : GridFSBucket \\
+							- speechDAO : SpeechDAO
+						}{
+							+ LoadVideoFromGridFS(MongoDBHandler) : void \\
+							+ LoadVideoFromGridFS() : void \\
+							+ loadVideo(ObjectId) : byte[] \\
+							+ getVideoBase64(Speech\_impl) : HashMap\textless String, String\textgreater \\
+							+ transferToOutputStream(InputStream, OutputStream) : void \\
+							+ getSpeechDAO() : SpeechDAO \\
+							+ main(String[]) : void
+						}
+						
+						\umlclass[x=30, y=-20 ]{Protocol\_impl}{
+							- date : Long \\
+							- starttime : Long \\
+							- endtime : Long \\
+							- index : Integer \\
+							- title : String \\
+							- place : String \\
+							- wp : Integer
+						}{
+							+ Protocol\_impl(Long, Long, Long, Integer, String, String, Integer) : void \\
+							+ get/set... : void \\
+							+ dateFormat(Long) : String
+						}
+						
+						\umlclass[x=50, y=-20]{Speech\_impl}{
+							- \_id : String \\
+							- text : String \\
+							- speaker : String \\
+							- protocol : IProtocol \\
+							- textContent : ArrayList<Object> \\
+							- agenda : IAgenda \\
+							- speakerObject : Speaker \\
+							- videoUrl : String \\
+							- videoId : String \\
+							- videoFileId : ObjectId
+						}{
+							+ Speech\_impl(String, String, String, IProtocol, ArrayList<Object>, IAgenda, Speaker, String) : void \\
+							+ get/set... : void \\
+							+ getVideoId() : String \\
+							+ setVideoId(String) : void \\
+							+ getVideoUrl() : String \\
+							+ setVideoUrl(String) : void \\
+							+ getVideoFileId() : ObjectId \\
+							+ setVideoFileId(ObjectId) : void \\
+							+ toCAS(LoadVideoFromGridFS, boolean) : JCas \\
+							+ toTex(boolean) : String \\
+							+ toXML() : String \\
+							+ toPDF(boolean) : byte[] \\
+							+ toDocument() : Document
+						}
+						
+						\umlclass[x=35, y=-7]{SpeechDAO}{
+							- speechCollection : MongoCollection\textless Document\textgreater
+						}{
+							+ SpeechDAO(MongoCollection\textless Document\textgreater) : void \\
+							+ SpeechDAO() : void \\
+							+ findBySpeakerId(String) : List\textless Speech\_impl\textgreater \\
+							+ countBySpeakerId(String) : long \\
+							+ findById(String) : Speech\_impl \\
+							+ findAll() : List\textless Speech\_impl\textgreater \\
+							+ findAllPaginated(int, int, Set\textless String\textgreater, String, String) : List\textless Speech\_impl\textgreater \\
+							+ count(Set\textless String\textgreater, String) : long \\
+							+ delete(String) : boolean \\
+							+ update(String, Speech\_impl) : boolean
+						}
+						
+						\umlclass[x=55]{SpeechService}{
+							- speechDAO : SpeechDAO
+						}{
+							+ SpeechService(SpeechDAO) : void \\
+							+ getAllSpeeches() : List\textless Speech\_impl\textgreater \\
+							+ getSpeechById(String) : Speech\_impl \\
+							+ getAllSpeechesPaginated(int, int, String, List\textless String\textgreater, String) : List\textless Speech\_impl\textgreater \\
+							+ countSpeeches(String, List\textless String\textgreater) : long
+						}
+						
+					\end{umlpackage}
+				\end{scope}
+			\end{tikzpicture}
+		}
+	\end{center}
+	
+	\section*{Uility}
+	
+	\newpage
+	
+	\begin{center}
+		\resizebox{\textwidth}{!}{%
+			\begin{tikzpicture}[scale=0.8]
+				\begin{scope}[xshift=5cm]
+						\begin{umlpackage}[x=0,y=0]{utility}
+						\umlclass[x=0]{ComparisonService}{
+							- dbHandler : MongoDBHandler \\
+							- speechCollection : MongoCollection\textless Document\textgreater \\
+							- linguisticCollection : MongoCollection\textless Document\textgreater \\
+							- linguisticTranskriptCollection : MongoCollection\textless Document\textgreater
+						}{
+							+ ComparisonService() : void \\
+							+ findMissingLinguisticTranskriptFeatureIds() : List\textless String\textgreater \\
+							+ findMissingLinguisticTranskriptFeatureIds(int, boolean) : List\textless String\textgreater \\
+							+ findMissingLinguisticFeatureIds(int, boolean) : List\textless String\textgreater \\
+							+ findMissingLinguisticFeatureIds() : List\textless String\textgreater \\
+							+ getAllMissingLinguisticFeatureIds() : List\textless String\textgreater \\
+							+ getAllMissingLinguisticFeatureIds(int, boolean) : List\textless String\textgreater \\
+							+ close() : void
+						}
+						
+						\umlclass[x=15]{Factory}{
+						}{
+							+ createSpeaker(Document) : Speaker\_impl \\
+							+ createSpeech(Document) : Speech\_impl \\
+							+ createProtocol(Document) : IProtocol \\
+							+ createAgenda(Document) : Agenda\_impl \\
+							+ createPlenarprotocol(Document) : Plenarprotocol\_impl
+						}
+						
+						\umlclass[x=30]{Factory\_impl}{
+						}{
+							+ createSpeaker(Document) : Speaker\_impl \\
+							+ createSpeech(Document) : Speech\_impl \\
+							+ createProtocol(Document) : Protocol\_impl \\
+							+ createAgenda(Document) : Agenda\_impl \\
+							+ createPlenarprotocol(Document) : Plenarprotocol\_impl
+						}
+						
+						\umlclass[x=45]{PeriodicTask}{
+							- scheduler : ScheduledExecutorService
+						}{
+							+ startScheduledTask() : void
+						}
+						
+					\end{umlpackage}
+				\end{scope}
+			\end{tikzpicture}
+		}
+	\end{center}
+	
+	
+	
+	
+	
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	% Use-Case-Diagramm
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\newpage
+	\section*{Use-Case-Diagramm}
+	\begin{center}
+		\resizebox{\textwidth}{!}{%
+			\begin{tikzpicture}[scale=0.8]
+				\begin{scope}[xshift=5cm]
+					% Akteure
+					\umlactor[x=0, y=-3]{Abgeordneter}
+					\umlactor[x=15, y=-0]{Besucher}
+					\umlactor[x=15, y=-3]{Presse}
+					\umlactor[x=10, y=-9]{Forscher}
+					
+					\begin{umlpackage}[x=5, y=0]{usecases}
+						% Use Cases
+						\umlsimpleclass[x=0, y=0]{Eigene Reden vorbereiten}
+						\umlsimpleclass[x=0, y=-1]{auf Konkurrenz vorbereiten}
+						\umlsimpleclass[x=0, y=-2]{Eigene Reden analysieren}
+						\umlsimpleclass[x=0, y=-3]{Reden nachlesen}
+						\umlsimpleclass[x=0, y=-4]{Auswerten}
+	
+						
+						
+						
+						
+						
+						
+						\umlsimpleclass[x=5, y=-5]{Sitzung beobachten}
+						
+					\end{umlpackage}
+					
+					% Verbindungen zwischen Akteuren und Use Cases
+					\umlassoc{Abgeordneter}{Eigene Reden vorbereiten}
+					\umlassoc{Abgeordneter}{auf Konkurrenz vorbereiten}
+					\umlassoc{Abgeordneter}{Eigene Reden analysieren}
+					\umlassoc{Abgeordneter}{Reden nachlesen}
+					\umlassoc{Abgeordneter}{Auswerten}
+
+					
+					\umlassoc{Besucher}{Sitzung beobachten}
+					\umlassoc{Presse}{Sitzung beobachten}
+					
+					\umlassoc{Forscher}{Sitzung beobachten}
+					\umlassoc{Forscher}{Auswerten}
+				\end{scope}
+			\end{tikzpicture}
+		}
+	\end{center}
+	
+\end{document}
